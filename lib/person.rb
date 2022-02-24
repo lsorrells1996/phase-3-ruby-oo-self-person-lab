@@ -34,15 +34,15 @@ class Person
     end 
 
     def clean? 
-        @hygiene > 7
+        self.hygiene > 7
     end
 
     def happy?
-        @happiness > 7
+        self.happiness > 7
     end
 
     def get_paid amount
-        @bank_account += amount
+        self.bank_account += amount
         "all about the benjamins"
     end
 
@@ -58,10 +58,23 @@ class Person
     end
 
     def call_friend friend
-        self
-        p1.happiness += 3
+        self.happiness += 3
         friend.happiness += 3
-        "Hi Felix! It's Stella. How are you?"
+        "Hi #{friend.name}! It's #{self.name}. How are you?"
+    end
+
+    def start_conversation friend, topic
+        if topic == "politics"
+            self.happiness -= 2
+            friend.happiness -=2
+            "blah blah partisan blah lobbyist"
+        elsif topic == "weather"
+            self.happiness += 1
+            friend.happiness += 1
+            "blah blah sun blah rain"
+        else 
+            "blah blah blah blah blah"
+        end
     end
 end
 
